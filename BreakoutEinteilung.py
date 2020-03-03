@@ -21,8 +21,7 @@ groups.append(['Ralf Reussner', 'Sebastian Hahner', 'Heiko Klare', 'Emre Taşpol
 groups.append(['Martina Rapp', 'Anne Koziolek', 'Robert Heinrich', 'Sebastian Krach', 'Larissa Schmid'])
 
 number_breakout_slots = 3
-minimal_number_collisions = 10
-n = 0
+minimal_number_collisions = 5
 
 # Iterate through all possible variants
 for i in range(number_breakout_slots**len(groups)):
@@ -45,12 +44,8 @@ for i in range(number_breakout_slots**len(groups)):
     # New minimum of collisions found?
     if len(collisions) <= minimal_number_collisions:
         minimal_number_collisions = len(collisions)
-        #print(slots)
         print(variant)
         print(collisions)
 
-    n += 1
-
 print('finished')
-print(n)
 print(number_breakout_slots**len(groups))
