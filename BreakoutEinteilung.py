@@ -5,23 +5,25 @@ def number_to_base(n, b, m):
         n //= b
     return digits[::-1]
 
-
 groups = list()
-groups.append(['Nico Kopp', 'Erik Burger', 'Timur Sağlam', 'Sofia Ananieva'])
-groups.append(['Anne Koziolek', 'Snigdha Singh', 'Martina Rapp', 'Daniel Zimmermann', 'Heiko Klare', 'Larissa Schmid', 'Ralf Reussner'])
-groups.append(['Frederik Reiche', 'Robert Heinrich', 'Roman Pilipchuk', 'Emre Taşpolatoğlu', 'Maximilian Walter', 'Stephan Seifermann'])
-groups.append(['Yves Schneider', 'Manar Mazkatli', 'Jörg Henß', 'Jan Keim', 'Sebastian Hahner', 'Sebastian Krach'])
-groups.append(['Maximilian Walter', 'Snigdha Singh', 'Daniel Zimmermann', 'Jan Keim', 'Robert Heinrich', 'Roman Pilipchuk'])
-groups.append(['Erik Burger', 'Nico Kopp', 'Sofia Ananieva', 'Timur Sağlam', 'Heiko Klare', 'Ralf Reussner', 'Manar Mazkatli'])
-groups.append(['Emre Taşpolatoğlu', 'Frederik Reiche', 'Stephan Seifermann'])
-groups.append(['Sebastian Krach', 'Martina Rapp', 'Jörg Henß', 'Yves Schneider', 'Larissa Schmid', 'Sebastian Hahner'])
-groups.append(['Jörg Henß', 'Nico Kopp', 'Erik Burger', 'Manar Mazkatli', 'Sofia Ananieva'])
-groups.append(['Stephan Seifermann', 'Frederik Reiche', 'Daniel Zimmermann', 'Yves Schneider', 'Jan Keim'])
-groups.append(['Ralf Reussner', 'Sebastian Hahner', 'Heiko Klare', 'Emre Taşpolatoğlu', 'Timur Sağlam', 'Maximilian Walter'])
-groups.append(['Martina Rapp', 'Anne Koziolek', 'Robert Heinrich', 'Sebastian Krach', 'Larissa Schmid'])
 
-number_breakout_slots = 3
-minimal_number_collisions = 5
+groups.append(['Anne', 'Martina', 'Sandro',	'Thomas', 'Sofia', 'Yves', 'Heiko', 'Dominik F.', 'Angelika', 'Sophie', 'Hamideh', 'Daniel'])
+groups.append(['Larissa', 'Timur', 'Sebastian H.', 'Sandro', 'Frederik', 'Maximilian', 'Dominik F.', 'Yves'	,'Sophie', 'Hamideh', 'Daniel', 'Angelika', 'Sofia', 'Manar'])
+groups.append(['Sebastian H.', 'Stephan', 'Maximilian', 'Frederik', 'Roman', 'Emre', 'Robert', 'Christopher'])
+groups.append(['Yves','Maximilian','Angelika','Timur','Jan', 'Christopher'])
+groups.append(['Thomas'	,'Ralf'	,'Sandro',	'Angelika'	,'Snigdha'	,'Larissa',	'Timur','Sofia'	])
+groups.append(['Sebastian H.', 'Ralf',	'Martina', 'Sandro', 'Max', 'Sofia', 'Stephan',	'Anne', 'Manar', 'Emre', 'Robert', 'Sebastian K.'])
+groups.append(['Frederik',	'Max', 'Dominik W', 'Stephan', 'Robert', 'Sebastian K.'])
+groups.append(['Larissa', 'Ralf', 'Dominik W', 'Anne', 'Daniel', 'Timur', 'Sebastian K.'])
+groups.append(['Sebastian H.', 'Frederik', 'Stephan', 'Emre', 'Christopher', 'Snigda'])
+groups.append(['Stephan',' Maximilian',	'Max' ,'Martina', 'Jan', 'Dominik W.', 'Larissa', 'Sebastian K.'])
+groups.append(['Snighda', 'Hamideh'])
+groups.append(['Daniel', 'Jan',	'Hamideh', 'Thomas'])
+groups.append(['Yves', 'Snigdha', 'Anne', 'Jan', 'Manar'])
+groups.append(['Martina', 'Max', 'Ralf', 'Robert', 'Manar', 'Thomas', 'Christopher'])
+
+number_breakout_slots = 4
+minimal_number_collisions = 10
 
 # Iterate through all possible variants
 for i in range(number_breakout_slots**len(groups)):
@@ -46,6 +48,8 @@ for i in range(number_breakout_slots**len(groups)):
         minimal_number_collisions = len(collisions)
         print(variant)
         print(collisions)
+        print(len(collisions))
+        print('')
 
 print('finished')
 print(number_breakout_slots**len(groups))
