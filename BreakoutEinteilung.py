@@ -9,7 +9,7 @@ import time
 def get_number_collisions(variant, groups):
     number_collisions = 0
     for participant, groups_participant in groups.items():
-        for i in range(len(participant)):
+        for i in range(len(groups_participant)):
             for j in range(len(groups_participant)):
                 if i >= j:
                     continue
@@ -22,7 +22,7 @@ def get_number_collisions(variant, groups):
 def get_collisions(variant, groups):
     collisions = list()
     for participant, groups_participant in groups.items():
-        for i in range(len(participant)):
+        for i in range(len(groups_participant)):
             for j in range(len(groups_participant)):
                 if i >= j:
                     continue
@@ -56,7 +56,7 @@ def check_variant(variant):
 
 groups = Dict.empty(
     key_type=types.unicode_type,
-    value_type=types.int64[:],
+    value_type=types.int32[:],
 )
 
 groups['Angelika'] = np.asarray([1, 2, 4, 5])
@@ -89,17 +89,11 @@ groups['Timur'] = np.asarray([2, 4, 5, 8])
 groups['Thomas'] = np.asarray([1, 5, 11, 13])
 groups['Yves'] = np.asarray([1, 2, 4, 12])
 
-groups['Sophie2'] = np.asarray([14, 16])
-groups['Stephan2'] = np.asarray([13, 16, 7, 15])
-groups['Timur2'] = np.asarray([12, 14, 15, 8])
-groups['Thomas2'] = np.asarray([13, 15, 11, 13])
-groups['Yves2'] = np.asarray([15, 12, 14, 6])
-
 
 number_breakout_slots = 4
 minimal_number_collisions = 1000
 #number_groups = 13
-number_groups = 16
+number_groups = 13
 
 start = time.time()
 print("Started")
