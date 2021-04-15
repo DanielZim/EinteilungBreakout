@@ -59,44 +59,57 @@ groups = Dict.empty(
     value_type=types.int32[:],
 )
 
-groups['Angelika'] = np.asarray([1, 2, 4, 5])
-groups['Anne'] = np.asarray([1, 6, 8, 12])
-groups['Christopher'] = np.asarray([3, 4, 9, 13])
-groups['Daniel'] = np.asarray([1, 2, 8, 11])
-groups['Dominik F.'] = np.asarray([1, 2])
-groups['Dominik W.'] = np.asarray([7, 8, 10])
-groups['Emre'] = np.asarray([3, 9])
-groups['Frederik'] = np.asarray([3, 6, 7, 9])
-groups['Hamideh'] = np.asarray([1, 2, 9, 11])
-# groups['Heiko'] = 1
-groups['Jan'] = np.asarray([4, 10, 11, 12])
-groups['Larissa'] = np.asarray([2, 4, 8, 10])
-groups['Manar'] = np.asarray([2, 6, 12, 13])
-groups['Martina'] = np.asarray([1, 6, 10, 13])
-groups['Max'] = np.asarray([6, 7, 10, 13])
-groups['Maximilian'] = np.asarray([2, 3, 4, 10])
-groups['Ralf'] = np.asarray([5, 6, 8, 13])
-groups['Robert'] = np.asarray([3, 6, 7, 13])
-# groups['Roman'] = 3
-groups['Sandro'] = np.asarray([1, 2, 5, 6])
-groups['Sebastian H.'] = np.asarray([2, 3, 6, 9])
-groups['Sebastian K.'] = np.asarray([6, 7, 8, 10])
-groups['Snigdha'] = np.asarray([2, 5, 9, 12])
-groups['Sofia'] = np.asarray([1, 2, 5, 6])
-groups['Sophie'] = np.asarray([1, 2])
-groups['Stephan'] = np.asarray([3, 6, 7, 10])
-groups['Timur'] = np.asarray([2, 4, 5, 8])
-groups['Thomas'] = np.asarray([1, 5, 11, 13])
-groups['Yves'] = np.asarray([1, 2, 4, 12])
+
+groups['Ralf'] = np.asarray([1,2,5,10])
+groups['Daniel'] = np.asarray([3,4, 5, 7])
+groups['Timur'] = np.asarray([1, 3, 5, 2])
+groups['Maximilian'] = np.asarray([8, 3, 10, 13])
+groups['Yves'] = np.asarray([3, 8, 9, 13])
+groups['Dominik F.'] = np.asarray([1,5,7])
+groups["Manar"] = np.asarray([1,6,8,9])
+groups['Tobias'] = np.asarray([4, 5, 7])
+groups['Sebastian H'] = np.asarray([3,11])
+groups['Joerg'] = np.asarray([11,12,13,3])
+groups["Sebastian K."] = np.asarray([8, 11, 12, 13])
+groups['Martina'] = np.asarray([3,6,8,13])
+groups['Dominik W.'] = np.asarray([5,11,12,13])
+groups['Stephan'] = np.asarray([3,5,10,11])
+groups["Snigdha"] = np.asarray([6,8,13,9])
+groups['Larissa'] = np.asarray([6,2,11,13])
+groups['Sofia'] = np.asarray([1,2,6,13])
+groups["Roman"] = np.asarray([5,10])
+groups["Frederik"] = np.asarray([3,10])
+groups['Max'] = np.asarray([3,11,12,13])
+groups['Hamideh']=np.asarray([1,2,4,6])
+groups['Heiko']=np.asarray([1,2,3,9])
+groups['Robert']=np.asarray([10,3,12,13])
+groups['Emre']=np.asarray([1, 3, 10, 11])
+groups['Christopher']=np.asarray([3])
+groups['Jan'] = np.asarray([1,4,5,7])
+groups['Angelika'] = np.asarray([2,5,6,7])
+groups['Sophie']=np.asarray([1,5])
+groups['Sandro']=np.asarray([1,3,11,12])
+groups['Thomas']=np.asarray([1,3,7,9])
+groups['Anne'] = np.asarray([1, 6, 9, 13])
 
 
 number_breakout_slots = 4
 minimal_number_collisions = 1000
-#number_groups = 13
 number_groups = 13
 
 start = time.time()
 print("Started")
+
+topics = [[] for _ in range(number_groups)]
+
+for participant, groups_participant in groups.items():
+    for i in groups_participant:
+        topics[i-1].append(participant)
+
+for i in range(len(topics)):
+    print("Topic " + str(i+1) + ": " + str(topics[i]))
+
+print("")
 
 n = 0
 
