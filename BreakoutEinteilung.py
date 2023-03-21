@@ -57,7 +57,7 @@ def check_variant(variant):
 
 groups = Dict.empty(
     key_type=types.unicode_type,
-    value_type=types.int32[:],
+    value_type=types.int64[:],
 )
 
 
